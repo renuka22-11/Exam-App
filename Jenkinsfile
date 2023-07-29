@@ -28,6 +28,16 @@ pipeline {
                 input 'Do you want to Deploy ?'
             }
         }
+        stage ('Confirm') {
+            steps {
+                git branch: 'main', url: 'https://github.com/EIVOR0717/examm.git'
+            }
+        }
+        stage ('Remove Existing Service') {
+            steps {
+                sh '/usr/bin/docker service rm exam'
+            }
+        }
         stage ('create docker servcie') {
             steps {
                 sh '/usr/bin/docker service create --name exam -p 4000:4000 renuka1711/examapp'
