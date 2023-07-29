@@ -30,7 +30,7 @@ pipeline {
         }
         stage ('create docker servcie') {
             steps {
-                sh '/usr/bin/docker service create --name flask-serivce -p 4000:4000 renuka1711/examapp'
+                sh '/usr/bin/docker service create --name exam -p 4000:4000 renuka1711/examapp'
             }
         }
         
